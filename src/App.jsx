@@ -1,24 +1,25 @@
 import '@sass/content/home/home.scss';
 import './App.css';
-
 // Loading spinner
 import './components/LoadSpinner/LoadSpinner.css';
 import './components/LoadSpinner/LoadSpinner';
-
 // Search bar
 import './components/SearchBar/SearchBar.css';
 
+// import FilterData from "./components/FilterData/FilterData";
 // Display Articles
 import Home from '@component/Home';
+import _ from 'lodash';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import SearchBar from './components/SearchBar/SearchBar';
 import ArticleList from './components/ArticleList/ArticleList';
-import FilterData from "./components/FilterData/FilterData";
+import OrderButton from './components/OrderButton/OrderButton';
+import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
 	// fetching dev.to API
+	_.orderBy();
 	const [articles, setArticles] = React.useState([]);
 	const [selectedTag, setSelectedTag] = useState('');
 	function API() {
@@ -38,6 +39,13 @@ function App() {
 
 	// displaying articles in homepage
 	return (
+		// <BrowserRouter>
+		// 	<Routes>
+		// 		<Route
+		// 			exact
+		// 			path="/myList"
+		// 	</Routes>
+		// </BrowserRouter>
 		<div className="App">
 			<SearchBar
 				articles={articles}
@@ -45,6 +53,7 @@ function App() {
 				setSelectedTag={setSelectedTag}
 				api={API}
 			/>
+			<OrderButton articles={articles} setArticles={setArticles} />
 			<ArticleList articles={articles} />
 		</div>
 	);
