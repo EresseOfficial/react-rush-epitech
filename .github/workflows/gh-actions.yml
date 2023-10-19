@@ -27,6 +27,9 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Test
+      run: npm run test
+
     # Artifact: attachment of my build that contains the job of the front-end
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
