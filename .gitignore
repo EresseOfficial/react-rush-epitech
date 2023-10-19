@@ -5,3 +5,4 @@ dist-ssr
 .eslintcache
 *.local
 node_modules/*
+/src/components/LoadSpinner/

@@ -2,14 +2,22 @@ import '@sass/content/home/home.scss';
 
 import React from 'react';
 
-import logo from '../assets/images/logo.svg';
+import SearchBar from './SearchBar/SearchBar';
+import OrderButton from './OrderButton/OrderButton';
+import ArticleList from './ArticleList/ArticleList';
+import Menu from './Menu/Menu';
 
-function Home() {
+function Home({ articles, setArticles, selectedTag, setSelectedTag }) {
 	return (
-		<div className="home">
-			<header className="home-header">
-				<img src={logo} className="home-logo" alt="logo" />
-			</header>
+		<div className="App">
+			<Menu />
+			<SearchBar
+				articles={articles}
+				selectedTag={selectedTag}
+				setSelectedTag={setSelectedTag}
+			/>
+			<OrderButton articles={articles} setArticles={setArticles} />
+			<ArticleList articles={articles} />
 		</div>
 	);
 }

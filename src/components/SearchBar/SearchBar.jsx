@@ -1,34 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import app from '../../App';
-import ArticleList from '../ArticleList/ArticleList';
+// import '../Home';
 
-const SearchBar = ({ articles, selectedTag, setSelectedTag, api }) => {
-	// const handleChange = (e) => {
-	// 	e.preventDefault();
-	// 	setSearchInput(e.target.value);
-	// };
-	//
-	// if (SearchInput.length > 0) {
-	// 	articles.filter((article) => {
-	// 		console.log(article);
-	// 		return article.tags.match(SearchInput);
-	// 	});
-	// }
-
+const SearchBar = ({ setSelectedTag }) => {
 	function handleSubmit(event) {
 		event.preventDefault();
-		api();
+		setSelectedTag(event.target.value);
 	}
 
 	return (
 		<>
 			<form onSubmit={handleSubmit}>
-				<input
-					type="text"
-					placeholder="Search here"
-					onChange={(event) => setSelectedTag(event.target.value)}
-				/>
+				<input type="text" placeholder="Search here" />
 				<button type="submit">Submit</button>
 			</form>
 		</>
