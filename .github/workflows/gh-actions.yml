@@ -1,9 +1,5 @@
 ## GitHub Actions - Build app on Pages and Test code
 
-# 1. Build une app front-end JS qui crée un artifact et publie l’app sur GitHub Pages.
-# 2. Créer une action qui teste le code du dépot lorsque du code est ajouté ou qu’une pull request est créé sur la branche main.
-
-
 name: Build and Test
 
 on:
