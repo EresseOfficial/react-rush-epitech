@@ -2,8 +2,8 @@ import '@sass/content/home/home.scss';
 import './App.css';
 
 // Loading spinner
-import './components/LoadSpinner/LoadSpinner.css';
-import './components/LoadSpinner/LoadSpinner';
+// import './components/LoadSpinner/LoadSpinner.css';
+// import './components/LoadSpinner/LoadSpinner';
 
 // Search bar
 import './components/SearchBar/SearchBar.css';
