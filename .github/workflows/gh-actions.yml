@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout Code
     - uses: actions/checkout@v2
 
     - name: Use Node.js 18.x
@@ -41,6 +42,7 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
+      - name: Checkout Code
       - uses: actions/checkout@v2
 
       - name: Use Node.js 18.x
@@ -54,14 +56,8 @@ jobs:
       - name: build
         run: npm run build
 
-      - name: Download Artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: build
-          path: dist
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: dist
